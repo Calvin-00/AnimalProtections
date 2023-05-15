@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Animal Protection Management System</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+  <h1>Animal Protection Management System</h1>
+  <hr>
+  <h2>Save Volunteer</h2>
+
+  <form action="#" th:action="@{/saveVolunteer}" th:object="${volunteer}" method="POST">
+    <label class="col-sm-2 col-form-label">Name</label>
+    <input type="text" th:field="*{name}" placeholder="Volunteer Name" class="form-control mb-4 col-4">
+    <label class="col-sm-2 col-form-label">Contact</label>
+    <input type="text" th:field="*{contact}" placeholder="Volunteer contact" class="form-control mb-4 col-4">
+    <label class="col-sm-2 col-form-label">Availability</label>
+    <input type="text" th:field="*{availability}" placeholder="Volunteer availability" class="form-control mb-4 col-4">
+    <label class="col-sm-2 col-form-label">Skills</label>
+    <input type="text" th:field="*{skills}" placeholder="Volunteer skills" class="form-control mb-4 col-4">
+
+
+    <button type="submit" class="btn btn-info col-2"> Save Volunteer</button>
+  </form>
+
+  <hr>
+
+  <a th:href="@{/volunteer}"> Back to Volunteer List</a>
+</div>
+</body>
+
+</html>

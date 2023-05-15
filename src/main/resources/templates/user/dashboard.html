@@ -1,0 +1,59 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>User Dashboard</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h2>Welcome to User Dashboard</h2>-->
+<!--<p>Logged as: <span sec:authentication="name"></span></p>-->
+<!--<p>Has role: <span sec:authentication="authorities"></span></p>-->
+<!--<div>-->
+<!--    <p><a th:href="@{/}">Home</a></p>-->
+<!--    <p><a th:href="@{/logout}">Log out</a></p>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>User Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+        h2 {
+            margin-top: 30px;
+            text-align: center;
+        }
+        div {
+            text-align: center;
+            margin-top: 20px;
+        }
+        p {
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h2>Welcome to User Dashboard</h2>
+<p>Logged as: <span sec:authentication="name"></span></p>
+<p>You have access of a: <span sec:authentication="authorities"></span></p>
+<div>
+    <p><a th:href="@{/}">Home Page</a></p>
+    <p><a th:href="@{/logout}">Log out</a></p>
+</div>
+</body>
+</html>

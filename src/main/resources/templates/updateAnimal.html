@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Animal Protection Management System</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+  <h1>Animal Protection Management System</h1>
+  <hr>
+  <h2>Update Animal</h2>
+
+  <form action="#" th:action="@{/saveAnimal}" th:object="${animal}" method="POST">
+
+    <!-- Add hidden form field to handle update -->
+    <input type="hidden" th:field="*{id}" />
+    <label class="col-sm-2 col-form-label">Name</label>
+    <input type="text" th:field="*{name}" placeholder="Animal name Name" class="form-control mb-4 col-4">
+    <label class="col-sm-2 col-form-label">Breed</label>
+    <input type="text" th:field="*{breed}" placeholder="Animal Breed" class="form-control mb-4 col-4">
+    <label class="col-sm-2 col-form-label">Age</label>
+    <input type="text" th:field="*{age}" placeholder="Animal Age" class="form-control mb-4 col-4">
+    <label class="col-sm-2 col-form-label">Gender</label>
+    <input type="text" th:field="*{sex}" placeholder="Animal gender" class="form-control mb-4 col-4">
+    <label class="col-sm-2 col-form-label">Medical Status</label>
+    <input type="text" th:field="*{issue}" placeholder="Medical status" class="form-control mb-4 col-4">
+
+    <button type="submit" class="btn btn-info col-2"> Update Animal</button>
+  </form>
+
+  <hr>
+
+  <a th:href="@{/animal}"> Back to Animal List</a>
+</div>
+</body>
+
+</html>

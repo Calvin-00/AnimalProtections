@@ -1,0 +1,55 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--    <title>User Dashboard</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h2>Welcome to Admin Dashboard</h2>-->
+<!--<p>Logged as: <span sec:authentication="name"></span></p>-->
+<!--<p>Has role: <span sec:authentication="authorities"></span></p>-->
+<!--<p><a th:href="@{/}">Home</a></p>-->
+<!--<p><a th:href="@{/logout}">Log out</a></p>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>User Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-top: 40px;
+        }
+        center {
+
+            text-align: right;
+            margin-top: 40px;
+        }
+        p {
+            color: #666;
+            margin: 10px 0;
+        }
+        a {
+            color: #069;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<h2>Welcome to Admin Dashboard</h2>
+<center><a th:href="@{/logout}"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a></center>
+<p>Logged in as: <span sec:authentication="name"></span></p>
+<p>Has role: <span sec:authentication="authorities"></span></p><br><br>
+<p><a th:href="@{/}"><i class="fa-solid fa-house-chimney fa-shake fa-2xl"></i></a></p><br><br>
+</body>
+</html>

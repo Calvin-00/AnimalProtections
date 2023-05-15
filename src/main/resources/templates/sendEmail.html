@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form</title>
+  <style>
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 1.2em;
+    }
+    body {
+      font-size: 16px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 16px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    button {
+      font-family: inherit;
+      font-size: 18px;
+      background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
+      color: white;
+      padding: 0.8em 1.2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 25px;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    button:active {
+      transform: scale(0.95);
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    button span {
+      display: block;
+      margin-left: 0.4em;
+      transition: all 0.3s;
+    }
+
+    button svg {
+      width: 18px;
+      height: 18px;
+      fill: white;
+      transition: all 0.3s;
+    }
+
+    button .svg-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.2);
+      margin-right: 0.5em;
+      transition: all 0.3s;
+    }
+
+    button:hover .svg-wrapper {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    button:hover svg {
+      transform: rotate(45deg);
+    }
+
+
+  </style>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<div class="container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed"
+            data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+            aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span> <span
+            class="icon-bar"></span> <span class="icon-bar"></span> <span
+            class="icon-bar"></span>
+    </button>
+    <div class="navbar">
+      <a class="navbar-brand" href="#" th:href="@{/}"><i class="fa-solid fa-house-user fa-2xl"></i></a>
+
+      <a class="navbar-brand" th:href="@{/logout}"><i class="fa-solid fa-arrow-right-from-bracket fa-fade fa-2xl" style="color: #ff9500;"></i> </a>
+
+    </div>
+
+  </div>
+<th:block th:if="${session.msg}">
+  <p>[[${session.msg}]]</p>
+  <th:block th:text="${#session.removeAttribute('msg')}"></th:block>
+</th:block>
+<form th:action="@{/postEmail}"  method="post">
+<!--<form action="postEmail" method="post">-->
+<!--  <label for="to">Email to:</label>-->
+<!--  <input type="email" id="to" name="to" placeholder="Email to">-->
+
+  <label th:for="to">Email to:</label>
+  <select th:id="to" th:name="to" th:field="*{volunteer}">
+    <option th:name="to"  th:each="product : ${volunteer}" th:value="${product.getId()}" th:text="${product.getContact()}"></option>
+  </select>
+
+  <label for="subject">Subject:</label>
+  <input type="text" id="subject" name="subject" placeholder="Subject">
+
+  <label for="message">Message:</label>
+  <textarea id="message" name="message" rows="5" cols="30" placeholder="Your Message"></textarea>
+
+<!--  <input type="submit" value="Send">-->
+<br><br>
+  <button>
+    <div class="svg-wrapper-1">
+      <div class="svg-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+          <path fill="none" d="M0 0h24v24H0z"></path>
+          <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+        </svg>
+      </div>
+    </div>
+    <span>Send</span>
+  </button>
+</form>
+</body>
+</html>
