@@ -490,6 +490,12 @@
                 </div>
             </button>
             <br>
+            <span th:utext="${successMessage}"></span>-->
+                <div th:if="${bindingResult!=null && bindingResult.getAllErrors()!=null}">
+                    <ul th:each="data : ${bindingResult.getAllErrors()}">
+                        <li th:text="${data.getObjectName() + ' :: ' + data.getDefaultMessage()}"></li>
+                    </ul>
+                </div>
 
         </form>
         <p>Don't have an account? <a th:href="@{|/login|}" class="a2">Sign in!</a></p>

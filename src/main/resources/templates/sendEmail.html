@@ -131,13 +131,13 @@
 </th:block>
 <form th:action="@{/postEmail}"  method="post">
 <!--<form action="postEmail" method="post">-->
-<!--  <label for="to">Email to:</label>-->
-<!--  <input type="email" id="to" name="to" placeholder="Email to">-->
+  <label for="to">Email to:</label>
+  <input type="email" id="to" name="to" placeholder="Email to">
 
-  <label th:for="to">Email to:</label>
-  <select th:id="to" th:name="to" th:field="*{volunteer}">
-    <option th:name="to"  th:each="product : ${volunteer}" th:value="${product.getId()}" th:text="${product.getContact()}"></option>
-  </select>
+<!--  <label th:for="to">Email to:</label>-->
+<!--  <select th:id="to" th:name="to" th:field="*{volunteer}">-->
+<!--    <option th:name="to"  th:each="product : ${volunteer}" th:value="${product.getId()}" th:text="${product.getContact()}"></option>-->
+<!--  </select>-->
 
   <label for="subject">Subject:</label>
   <input type="text" id="subject" name="subject" placeholder="Subject">
